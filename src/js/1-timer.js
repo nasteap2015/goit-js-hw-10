@@ -5,6 +5,9 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+
+const btn = document.querySelector('button');
+btn.setAttribute('disabled', true);
 let userSelectedDate = 0;
 const options = {
   enableTime: true,
@@ -14,11 +17,23 @@ const options = {
   onClose(selectedDates) {
     console.log(selectedDates[0]);
     userSelectedDate = selectedDates[0];
-    console.log(userSelectedDate);
+    selectedDate();
   },
 };
 const calendar = flatpickr('#datetime-picker', options);
 
-if (userSelectedDate < Date.now) {
-  window.alert(`Please choose a date in the future`);
+function selectedDate(selectedDates) {
+  if (userSelectedDate <= new Date()) {
+    iziToast.error({
+      message: 'Please choose a date in the future',
+      close: true,
+      backgroundColor: '#ef4040',
+      position: 'topRight',
+      maxWidth: '302px',
+      progressBar: false,
+      messageColor: '#fff',
+    });
+  } else {
+    btn.disabled = false;
+  }
 }
