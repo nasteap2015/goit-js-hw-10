@@ -14,6 +14,30 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* Клас для обнулення базових властивостей списків (ul) */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Клас для обнулення базових властивостей у посилань */
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+/*Глобальні стилі для кнопок*/
+button {
+  font-family: inherit;
+  color: currentColor;
+}
+
+/*Глобальні стилі для полів вводу*/
+input {
+  font-family: inherit;
+}
+
 body{
   padding-top: 36px;
   padding-left: 156px;
@@ -72,6 +96,7 @@ button:disabled{
   display: flex;
   gap: 24px;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .field{
